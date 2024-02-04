@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf77fr52b3ke3"]
+
+[ext_resource type="Script" path="res://scenes/objects/projectiles/arrow.gd" id="1_3epye"]
+[ext_resource type="Texture2D" uid="uid://cu6cwhce5jocd" path="res://Assets/Weapons/Bone/Bone.png" id="1_owowj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_irxk8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6hv3"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6v6f"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghi1x"]
+size = Vector2(4, 3)
+
+[node name="Arrow" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_irxk8")
+script = ExtResource("1_3epye")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7, 0)
+texture = ExtResource("1_owowj")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_x6hv3")
+
+[node name="ImpactDetector" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactDetector"]
+shape = SubResource("CircleShape2D_g6v6f")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ghi1x")
+disabled = true
