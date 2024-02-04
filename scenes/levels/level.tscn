@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvnqdkln32nc0"]
+[gd_scene load_steps=10 format=3 uid="uid://cvnqdkln32nc0"]
 
 [ext_resource type="PackedScene" uid="uid://c5a26pnvidg2v" path="res://scenes/player/player.tscn" id="1_hmdmq"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_j6ql0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpotmgjca63gc" path="res://Assets/Assets.png" id="3_xib0l"]
 [ext_resource type="Texture2D" uid="uid://bou4fynqjfyc7" path="res://Assets/Background_2.png" id="4_r2u2f"]
 [ext_resource type="PackedScene" uid="uid://beqd785xhulgb" path="res://scenes/objects/bonefire.tscn" id="6_0dvxv"]
+[ext_resource type="PackedScene" uid="uid://bnai3rd4c0knv" path="res://scenes/enemies/orc/orc.tscn" id="7_rlx3b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pnb03"]
 texture = ExtResource("3_xib0l")
@@ -1098,6 +1099,19 @@ position_smoothing_enabled = true
 color = Color(0, 0.552941, 0.556863, 0.996078)
 energy = 0.5
 blend_mode = 1
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="OrcFireLeft" parent="Enemies" instance=ExtResource("7_rlx3b")]
+position = Vector2(702, 568)
+facing = 1
+
+[node name="OrcFireRight" parent="Enemies" instance=ExtResource("7_rlx3b")]
+position = Vector2(813, 568)
+
+[node name="OrcRunning" parent="Enemies" instance=ExtResource("7_rlx3b")]
+position = Vector2(272, 615)
+is_idle = false
 
 [connection signal="player_fireball" from="Player" to="." method="_on_player_player_fireball"]
 [connection signal="player_shot" from="Player" to="." method="_on_player_player_shot"]

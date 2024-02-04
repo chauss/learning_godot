@@ -2,6 +2,7 @@ extends Node2D
 
 const speed := 700
 const lifetime := 4.0
+const damage := 20
 
 var direction: Vector2 = Vector2.ZERO
 
@@ -23,6 +24,8 @@ func _process(delta):
 		position += delta * speed * direction
 	
 	
-func _on_impact(_body: Node) -> void:
+func _on_impact(body: Node) -> void:
 	timer.start(1.5)
 	explosion_animation.play("explosion")
+	if body.has_method("on_hit"):
+		body.on_hit(self, damage);

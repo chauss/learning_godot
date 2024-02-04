@@ -2,6 +2,7 @@ extends RigidBody2D
 
 const speed := 700
 const lifetime := 3.0
+const damage := 10
 
 var direction: Vector2 = Vector2.ZERO
 
@@ -23,7 +24,8 @@ func _physics_process(_delta):
 	look_at(global_position + get_linear_velocity())
 
 	
-func _on_impact(_body: Node) -> void:
+func _on_impact(body: Node) -> void:
 	set_physics_process(false)
 	sleeping = true
-	
+	if body.has_method("on_hit"):
+		body.on_hit(self, damage);
