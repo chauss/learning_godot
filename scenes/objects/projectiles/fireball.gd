@@ -1,10 +1,11 @@
 extends Node2D
 
-const speed := 700
+const speed := 600
 const lifetime := 4.0
 const damage := 20
 
 var direction: Vector2 = Vector2.ZERO
+var didImpact: bool = false
 
 @onready var timer := $Timer
 @onready var impact_detector := $ImpactDetector
@@ -20,11 +21,12 @@ func _ready():
 
 
 func _process(delta):
-	if not impact_detector.has_overlapping_bodies():
+	if not impact_detector.has_overlapping_bodies() and not didImpact:
 		position += delta * speed * direction
 	
 	
 func _on_impact(body: Node) -> void:
+	didImpact = true
 	timer.start(1.5)
 	explosion_animation.play("explosion")
 	if body.has_method("on_hit"):
