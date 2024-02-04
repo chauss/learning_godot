@@ -1,6 +1,9 @@
 extends CharacterBody2D
+class_name Player
+
 signal player_shot(pos)
 signal player_fireball(pos, dir)
+signal player_wants_to_enter
 
 const SPEED: int = 300
 const GRAVITY: int = 30
@@ -58,12 +61,15 @@ func _physics_process(_delta):
 	else:
 		velocity.x = 0
 		playerAnimation.play("idle")
+		
 	if not is_on_floor():
 		playerAnimation.play("idle")
 
 	# "move_and_slide" already takes delta time into account.
 	move_and_slide()
 	
+	if Input.is_action_just_pressed("enter"):
+		player_wants_to_enter.emit()
 
 
 func _on_shoot_timer_timeout():
