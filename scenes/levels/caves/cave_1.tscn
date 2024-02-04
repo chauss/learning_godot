@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://of040vnjnona"]
+[gd_scene load_steps=6 format=3 uid="uid://of040vnjnona"]
 
 [ext_resource type="Script" path="res://scenes/levels/caves/cave_1.gd" id="2_kfj0t"]
 [ext_resource type="TileSet" uid="uid://r6fwxonynmtr" path="res://scenes/levels/world_tileset.tres" id="3_5mdda"]
 [ext_resource type="PackedScene" uid="uid://dsyatinji6mmg" path="res://scenes/areas/enterable.tscn" id="4_md08n"]
 [ext_resource type="PackedScene" uid="uid://cvnqdkln32nc0" path="res://scenes/levels/level.tscn" id="5_6icho"]
+[ext_resource type="Script" path="res://scenes/levels/caves/cave_1_exit.gd" id="5_blad0"]
 
 [node name="Cave1" instance=ExtResource("5_6icho")]
 script = ExtResource("2_kfj0t")
@@ -24,3 +25,4 @@ position = Vector2(23, -19)
 
 [node name="CaveExit" parent="Enterables" index="0" instance=ExtResource("4_md08n")]
 position = Vector2(23, -18)
+script = ExtResource("5_blad0")
