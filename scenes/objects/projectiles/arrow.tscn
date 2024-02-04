@@ -5,11 +5,13 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_irxk8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x6hv3"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb805"]
 radius = 2.0
+height = 24.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g6v6f"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4m15"]
 radius = 2.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghi1x"]
 size = Vector2(4, 3)
@@ -30,15 +32,18 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2, 0)
 rotation = 1.5708
-shape = SubResource("CircleShape2D_x6hv3")
+shape = SubResource("CapsuleShape2D_xb805")
 
 [node name="ImpactDetector" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactDetector"]
-shape = SubResource("CircleShape2D_g6v6f")
+position = Vector2(2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d4m15")
 
 [node name="Timer" type="Timer" parent="."]
 

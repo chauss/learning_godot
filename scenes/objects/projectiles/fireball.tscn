@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bl7366xrr0i2u" path="res://Assets/extra/explosion_1.png" id="1_bpw1x"]
 [ext_resource type="Script" path="res://scenes/objects/projectiles/fireball.gd" id="1_nxt52"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_owutt"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fu18"]
 radius = 20.0
+height = 260.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sai2l"]
 atlas = ExtResource("1_bpw1x")
@@ -373,7 +374,8 @@ collision_layer = 4
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactDetector"]
-shape = SubResource("CircleShape2D_owutt")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8fu18")
 
 [node name="ExplosionAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gcya6")
