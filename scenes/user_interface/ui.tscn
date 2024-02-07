@@ -16,6 +16,7 @@ theme_override_constants/margin_left = 35
 theme_override_constants/margin_bottom = 25
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+modulate = Color(0.980392, 0.207843, 0.176471, 1)
 layout_mode = 2
 color = Color(0.0941176, 0.0941176, 0.0941176, 0.298039)
 
