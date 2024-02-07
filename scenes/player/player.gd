@@ -5,11 +5,12 @@ signal player_shot(pos)
 signal player_fireball(pos, dir)
 signal player_wants_to_enter
 
-const SPEED: int = 300
-const GRAVITY: int = 30
-const JUMP_VELOCITY: int = 500
+const SPEED: int = 200
+const JUMP_VELOCITY: int = 300
 var didJustAirJump: bool = false
 var canShoot: bool = true
+
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var playerAnimation := $PlayerAnimation
 @onready var shootTimer := $ShootTimer
@@ -37,8 +38,8 @@ func _process(_delta):
 		player_shot.emit(startPos.global_position)
 
 
-func _physics_process(_delta):
-	velocity.y += GRAVITY
+func _physics_process(delta):
+	velocity.y += gravity * delta
 	
 	# Jumping
 	if is_on_floor():

@@ -1,7 +1,7 @@
 extends Area2D
 class_name Enterable
 
-@export var scene_to_enter: PackedScene
+@export var scene_to_enter: String
 
 func enter():
-	get_tree().change_scene_to_packed(scene_to_enter)
+	TransitionLayer.change_scene(scene_to_enter)

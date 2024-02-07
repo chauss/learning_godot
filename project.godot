@@ -13,11 +13,13 @@ config_version=5
 config/name="learning_godot"
 run/main_scene="res://scenes/levels/world_1.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameMaster="*res://globals/game_master.gd"
+TransitionLayer="*res://scenes/transitions/transition_layer.tscn"
 
 [display]
 

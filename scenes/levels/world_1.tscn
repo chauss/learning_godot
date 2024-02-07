@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctfg6wl5q76fl"]
+[gd_scene load_steps=10 format=3 uid="uid://ctfg6wl5q76fl"]
 
 [ext_resource type="PackedScene" uid="uid://cvnqdkln32nc0" path="res://scenes/levels/level.tscn" id="1_01pqu"]
 [ext_resource type="Texture2D" uid="uid://bou4fynqjfyc7" path="res://Assets/Background_2.png" id="2_3t2ht"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://beqd785xhulgb" path="res://scenes/objects/bonefire.tscn" id="5_fkfar"]
 [ext_resource type="PackedScene" uid="uid://bnai3rd4c0knv" path="res://scenes/enemies/orc/orc.tscn" id="6_prefa"]
 [ext_resource type="PackedScene" uid="uid://dsyatinji6mmg" path="res://scenes/areas/enterable.tscn" id="8_qhe57"]
-[ext_resource type="PackedScene" uid="uid://of040vnjnona" path="res://scenes/levels/caves/cave_1.tscn" id="9_ec4ln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6j05"]
 size = Vector2(143, 202)
@@ -72,4 +71,4 @@ blend_mode = 1
 
 [node name="CaveEntry" parent="Enterables" index="0" instance=ExtResource("8_qhe57")]
 position = Vector2(959, -55)
-scene_to_enter = ExtResource("9_ec4ln")
+scene_to_enter = "res://scenes/levels/caves/cave_1.tscn"
