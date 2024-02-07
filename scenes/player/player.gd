@@ -28,7 +28,7 @@ func _process(_delta):
 		if playerAnimation.flip_h:
 			dir = Vector2.LEFT
 		player_fireball.emit(startPos.global_position, dir)
-	elif canShoot and Input.is_action_just_pressed("secondary"):
+	elif canShoot and Input.is_action_just_pressed("secondary") and GameMaster.arrow_amount > 0:
 		canShoot = false
 		shootTimer.start()
 		var startPos = projectileStartRight

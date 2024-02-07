@@ -10,6 +10,8 @@ const fireball_scene: PackedScene = preload("res://scenes/objects/projectiles/fi
 
 
 func _on_player_player_shot(pos):
+	GameMaster.arrow_amount -= 1
+	$UI.update_arrow_label()
 	var arrow = arrow_scene.instantiate()
 	arrow.position = pos
 	arrow.direction = player.global_position.direction_to(get_global_mouse_position())

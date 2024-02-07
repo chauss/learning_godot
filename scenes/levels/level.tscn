@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvnqdkln32nc0"]
+[gd_scene load_steps=4 format=3 uid="uid://cvnqdkln32nc0"]
 
 [ext_resource type="PackedScene" uid="uid://c5a26pnvidg2v" path="res://scenes/player/player.tscn" id="1_hmdmq"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_j6ql0"]
+[ext_resource type="PackedScene" uid="uid://c023saitjj3qq" path="res://scenes/user_interface/ui.tscn" id="3_j6p57"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_j6ql0")
@@ -26,6 +27,8 @@ position_smoothing_enabled = true
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enterables" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("3_j6p57")]
 
 [connection signal="player_fireball" from="Player" to="." method="_on_player_player_fireball"]
 [connection signal="player_shot" from="Player" to="." method="_on_player_player_shot"]
